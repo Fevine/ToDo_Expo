@@ -19,4 +19,4 @@ export const TodoProvider = ({ children }) => {
   );
 };
 
-export const useTodo = () => useContext(todosContext);
+export const useTodos = () => useContext(todosContext);

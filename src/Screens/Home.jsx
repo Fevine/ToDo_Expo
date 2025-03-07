@@ -1,13 +1,16 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import TodoCard from '../Components/TodoCard';
-import { TempData } from '../Data/TempData';
+import { useTodos } from '../Context/TodoContext';
 
 const HomeScreen = () => {
+
+  const { Todos, setTodos } = useTodos()
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={TempData}
+        data={Todos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TodoCard

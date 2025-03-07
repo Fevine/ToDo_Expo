@@ -2,6 +2,7 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function useAsyncStorage(storagename, defaultValue = '') {
+  
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
