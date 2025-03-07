@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   input: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
     borderBottomWidth: 1,
