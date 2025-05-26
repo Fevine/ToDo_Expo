@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
 import { useTodos } from '../Context/TodoContext';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 
 const AddTodoScreen = ({ navigation }) => {
 
@@ -14,7 +14,7 @@ const AddTodoScreen = ({ navigation }) => {
     if (title.trim() && content.trim()) {
       // Save the new todo (You can implement AsyncStorage or Context API here)
       setTodos([...Todos, {
-        id: uuidv4(),
+        id: uuid.v4(),
         title,
         content,
       }])

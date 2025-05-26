@@ -1,12 +1,11 @@
-import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { useTodos } from './src/Context/TodoContext';
 import AddTodoScreen from './src/Screens/AddTodo';
 import HomeScreen from './src/Screens/Home';
 import DetailScreen from './src/Screens/ToDoDetail';
-import { useTodos } from './src/Context/TodoContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +26,8 @@ export default function MainRoute() {
           options={({ navigation }) => ({
             title: 'ToDo by Albinoni',
             headerRight: () => (
-              <TouchableOpacity onPress={() => navigation.navigate('AddTodo')} style={{ marginRight: 15 }}>
-                <Ionicons name="add-circle-outline" size={28} color="black" />
+              <TouchableOpacity onPress={() => navigation.navigate('AddTodo')} style={styles.addBtn}>
+                <Ionicons name="add-circle-outline" size={32} color="blue" />
               </TouchableOpacity>
             ),
           })}
@@ -59,3 +58,15 @@ export default function MainRoute() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  addBtn: {
+    width: 40,
+    height: 40,
+    marginRight: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(38, 241, 48, 0.1)',
+    borderRadius: 20,
+  }
+});
