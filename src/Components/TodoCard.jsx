@@ -20,11 +20,11 @@ const TodoCard = (props) => {
   return (
     <View style={styles.cardContainer}>
       <TouchableOpacity
-        style={styles.container}
+        style={styles.textContainer}
         onPress={() => GoDetail(props)}
       >
         <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.content}>{props.content}</Text>
+        <Text style={styles.content} numberOfLines={3}>{props.content}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
   },
-  container: {
+  textContainer: {
     flex: 1,
     padding: 16,
     borderRadius: 6,
@@ -62,12 +62,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: "Roboto-Regular",
+    fontWeight: "200",
     color: '#124',
     marginBottom: 4,
   },
   content: {
     fontSize: 14,
+    fontFamily: "Roboto-Regular",
     color: '#555',
   },
 });

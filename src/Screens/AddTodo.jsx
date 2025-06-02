@@ -1,30 +1,31 @@
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import React, { useState } from 'react';
-import { useTodos } from '../Context/TodoContext';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import uuid from 'react-native-uuid';
+import { useTodos } from '../Context/TodoContext';
 
 const AddTodoScreen = ({ navigation }) => {
-
-  const { Todos, setTodos } = useTodos()
+  const { Todos, setTodos } = useTodos();
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
   const handleAddTodo = () => {
     if (title.trim() && content.trim()) {
-      // Save the new todo (You can implement AsyncStorage or Context API here)
-      setTodos([...Todos, {
-        id: uuid.v4(),
-        title,
-        content,
-      }])
-      console.log('New Todo:', { title, content });
-      navigation.goBack(); // Navigate back after adding
+      setTodos([
+        ...Todos,
+        {
+          id: uuid.v4(),
+          title,
+          content,
+        },
+      ]);
+      navigation.goBack();
     }
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.label}>Title</Text>
       <TextInput
         style={styles.input}
@@ -43,7 +44,7 @@ const AddTodoScreen = ({ navigation }) => {
       />
 
       <Button title="Add Todo" onPress={handleAddTodo} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -52,29 +53,39 @@ export default AddTodoScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   label: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontFamily: "Pacifico-Regular",
     marginBottom: 5,
   },
   input: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: '#ccc7',
+    fontFamily: "Roboto-Regular",
+    fontSize: 20,
+    fontWeight: 100,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 2,
     paddingHorizontal: 10,
     marginBottom: 15,
   },
   textArea: {
-    height: 100,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
+    height: "100%",
+    borderColor: '#ccc7',
+    borderRadius: 2,
+    fontFamily: "Roboto-Regular",
+    fontSize: 20,
+    fontWeight: 100,
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 10,
     marginBottom: 15,
+    textAlignVertical: "top",
+    flex: 1,
   },
 });

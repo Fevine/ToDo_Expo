@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'ComicNeue-Regular',
     textAlign: 'center',
     marginBottom: 16,
     color: '#333',

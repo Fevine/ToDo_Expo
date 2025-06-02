@@ -2,13 +2,13 @@
   "expo": {
     "name": "ToDoAppStratch",
     "slug": "ToDoAppStratch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/sticky-note.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -29,6 +29,7 @@
       "eas": {
         "projectId": "ae4ab573-3407-4d6d-92e7-8101b5ddd53c"
       }
-    }
+    },
+    "plugins": ["expo-font"]
   }
 }
